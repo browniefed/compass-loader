@@ -22,7 +22,7 @@
   "dependencies": {
     "compass-node": "^0.1.2",
     "loader-utils": "^0.2.5",
-    "sass-graph": "git+https://github.com/lox/sass-graph.git#3a17328"
+    "node-sass": "^2.0.0-beta"
   },
   "devDependencies": {
     "mocha": "^2.0.1",

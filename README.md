@@ -1,9 +1,16 @@
-#This is 100% sourced code from sass-loader with slightly different dependencies. All credit to @jtangelder for sass-loader and @miniflycn for write compass-node
+#This is 100% sourced code from sass-loader with slightly different dependencies. All credit to @jtangelder for sass-loader and @miniflycn for writing compass-node
 
 If you do not need compass (various mixins and sprite generation, etc) then please see the sass-loader [https://github.com/jtangelder/sass-loader](https://github.com/jtangelder/sass-loader)
 
 # compass loader for [webpack](http://webpack.github.io/)
 
+
+
+####Warning
+This is all pretty beta stuff, I don't recommend using this in production just yet. 
+Honestly you're better off using `sass-loader` and [https://github.com/Igosuki/compass-mixins](https://github.com/Igosuki/compass-mixins) then add `node_modules/compass-mixins/lib` as an include path.
+
+####You've been warned
 
 ## Usage
 
@@ -50,6 +57,21 @@ var imagePath = path.resolve(__dirname, '../images'),
     spriteOutput = imagePath;
 require("!style!raw!compass!./file.scss?imagePath=" + imagePath + "&spriteOutput=" + spriteOutput);
 ```
+
+Comma separate imports are not supported.
+```
+@import "language", "another/module";
+```
+should be written as
+```
+@import "language";
+@import "another/module";
+```
+Sorry.
+
+
+Also this depends on the latest node-sass 2.0 beta to return all included files so we can tell webpack about dependencies.
+This may or may not work well, and also won't work when node-sass generates errors as it will not complete parsing the CSS and will not return all included files. To get this functionality sass-graph would have to be modified
 
 
 

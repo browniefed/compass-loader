@@ -1,5 +1,4 @@
 'use strict';
-
 var should = require('should');
 var path = require('path');
 var webpack = require('webpack');
@@ -13,7 +12,7 @@ function readCss(ext, id) {
 
 function test(name, id, query) {
     it(name, function (done) {
-        var exts = ['scss', 'sass'];
+        var exts = ['scss'];
         var pending = exts.length;
 
         query = query || '';

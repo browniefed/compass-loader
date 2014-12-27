@@ -1,7 +1,6 @@
 var utils = require('loader-utils');
 var compass = require('compass-node');
 var path = require('path');
-var sassGraph = require('sass-graph');
 
 module.exports = function (content) {
     this.cacheable();
@@ -30,24 +29,18 @@ module.exports = function (content) {
     opt.stats = {};
     
     var loadPaths = opt.includePaths;
-    var markDependencies = function () {
-        try {
-            var graph = sassGraph.parseFile(this.resourcePath, {loadPaths: loadPaths});
-            graph.visitDescendents(this.resourcePath, function (imp) {
-                this.addDependency(imp);
-            }.bind(this));
-        } catch (err) {
-            this.emitError(err);
-        } 
+    var markDependencies = function (deps) {
+        deps.forEach(function(file) {
+            this.addDependency(file);
+        }.bind(this))
     }.bind(this);
 
     opt.success = function (css) {
-        markDependencies();
-        callback(null, css);
+        markDependencies( (css.stats && css.stats.includedFiles || []) )
+        callback(null, css.css);
     }.bind(this);
 
     opt.error = function (err) {
-        markDependencies();
         this.emitError(err);
         callback(err);
     }.bind(this);

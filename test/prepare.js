@@ -4,7 +4,7 @@ var sass = require('node-sass');
 var fs = require('fs');
 var path = require('path');
 
-['scss', 'sass'].forEach(function (ext) {
+['scss'].forEach(function (ext) {
     var files = [];
 
     fs.readdirSync(path.join(__dirname, ext))
@@ -24,6 +24,6 @@ var path = require('path');
             })
         })
         .forEach(function (content, index) {
-            fs.writeFileSync(files[index].replace(new RegExp('\\.' + ext + '$', 'gi'), '.css'), content, 'utf8');
+            fs.writeFileSync(files[index].replace(new RegExp('\\.' + ext + '$', 'gi'), '.css'), content.css, 'utf8');
         });
 });
