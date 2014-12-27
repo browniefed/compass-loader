@@ -1,5 +1,5 @@
 var utils = require('loader-utils');
-var sass = require('node-sass');
+var compass = require('compass-node');
 var path = require('path');
 var sassGraph = require('sass-graph');
 
@@ -22,6 +22,8 @@ module.exports = function (content) {
         var root = [].concat(this.options.resolve.root);
         opt.includePaths = opt.includePaths.concat(root);
     }
+
+    opt.spriteDist = opt.spriteOutput || '';
 
     // output compressed by default
     opt.outputStyle = opt.outputStyle || 'compressed';
@@ -50,5 +52,5 @@ module.exports = function (content) {
         callback(err);
     }.bind(this);
 
-    sass.render(opt);
+    compass.render(this.resourcePath, opt);
 };

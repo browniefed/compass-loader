@@ -1,7 +1,7 @@
 {
-  "name": "sass-loader",
-  "version": "0.3.1",
-  "description": "SASS loader for Webpack",
+  "name": "compass-loader",
+  "version": "0.0.1",
+  "description": "Compass loader for Webpack",
   "main": "index.js",
   "scripts": {
     "pretest": "node test/prepare.js",
@@ -9,18 +9,19 @@
   },
   "keywords": [
     "sass",
+    "compass",
     "webpack",
     "loader"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jtangelder/sass-loader.git"
+    "url": "git@github.com:browniefed/compass-loader.git"
   },
-  "author": "J. Tangelder",
+  "author": "Jason brownr",
   "license": "MIT",
   "dependencies": {
+    "compass-node": "^0.1.2",
     "loader-utils": "^0.2.5",
-    "node-sass": "^1.2.2",
     "sass-graph": "git+https://github.com/lox/sass-graph.git#3a17328"
   },
   "devDependencies": {

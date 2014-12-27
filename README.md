@@ -1,4 +1,8 @@
-# sass loader for [webpack](http://webpack.github.io/)
+#This is 100% sourced code from sass-loader with slightly different dependencies. All credit to @jtangelder for sass-loader and @miniflycn for write compass-node
+
+If you do not need compass (various mixins and sprite generation, etc) then please see the sass-loader [https://github.com/jtangelder/sass-loader](https://github.com/jtangelder/sass-loader)
+
+# compass loader for [webpack](http://webpack.github.io/)
 
 
 ## Usage
@@ -6,21 +10,21 @@
 [Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
 
 ``` javascript
-var css = require("!raw!sass!./file.scss");
+var css = require("!raw!compass!./file.scss");
 // => returns compiled css code from file.scss, resolves imports
-var css = require("!css!sass!./file.scss");
+var css = require("!css!compass!./file.scss");
 // => returns compiled css code from file.scss, resolves imports and url(...)s
 ```
 
 Use in tandem with the [`style-loader`](https://github.com/webpack/style-loader) to add the css rules to your document:
 
 ``` javascript
-require("!style!css!sass!./file.scss");
+require("!style!css!compass!./file.scss");
 ```
 
 ### webpack config
 
-It's recommended to adjust your `webpack.config` so `style!css!sass!` is applied automatically on all files ending on `.scss`:
+It's recommended to adjust your `webpack.config` so `style!css!compass!` is applied automatically on all files ending on `.scss`:
 
 ``` javascript
 module.exports = {
@@ -29,7 +33,7 @@ module.exports = {
       {
         test: /\.scss$/,
         // Query parameters are passed to node-sass
-        loader: "style!css!sass?outputStyle=expanded&" +
+        loader: "style!css!compass?outputStyle=expanded&" +
           "includePaths[]=" +
             (path.resolve(__dirname, "./bower_components")) + "&" +
           "includePaths[]=" +
@@ -40,11 +44,20 @@ module.exports = {
 };
 ```
 
+If you utilize sprites or anything that utilizes your `config.rb` images path then you'll need to pass in both `imagePath` and `spriteDist` paths.
+``` javascript
+var imagePath = path.resolve(__dirname, '../images'),
+    spriteOutput = imagePath;
+require("!style!raw!compass!./file.scss?imagePath=" + imagePath + "&spriteOutput=" + spriteOutput);
+```
+
+
+
 Then you only need to write: `require("./file.scss")`. See [`node-sass`](https://github.com/andrew/node-sass) for the available options.
 
 ## Install
 
-`npm install sass-loader`
+`npm install compass-loader`
 
 ## Caveats
 
