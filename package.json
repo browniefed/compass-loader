@@ -20,7 +20,7 @@
   "author": "Jason brownr",
   "license": "MIT",
   "dependencies": {
-    "compass-node": "^0.1.2",
+    "compass-node": "^0.1.3",
     "loader-utils": "^0.2.5",
     "node-sass": "^2.0.0-beta"
   },
