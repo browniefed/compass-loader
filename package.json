@@ -1,6 +1,6 @@
 {
   "name": "compass-loader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Compass loader for Webpack",
   "main": "index.js",
   "scripts": {
