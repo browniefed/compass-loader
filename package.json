@@ -1,6 +1,6 @@
 {
   "name": "compass-loader",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Compass loader for Webpack",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "dependencies": {
     "compass-node": "^0.1.4",
     "loader-utils": "^0.2.5",
-    "node-sass": "^2.0.0-beta"
+    "node-sass": "^2.0.1"
   },
   "devDependencies": {
     "mocha": "^2.0.1",
