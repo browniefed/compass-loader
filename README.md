@@ -1,8 +1,10 @@
-#This is 100% sourced code from sass-loader with slightly different dependencies. All credit to @jtangelder for sass-loader and @miniflycn for writing compass-node
+# DO NOT USE THIS
+
+## THIS IS NOT MAINTAINED
 
 If you do not need compass (various mixins and sprite generation, etc) then please see the sass-loader [https://github.com/jtangelder/sass-loader](https://github.com/jtangelder/sass-loader)
 
-# compass loader for [webpack](http://webpack.github.io/)
+## compass loader for [webpack](http://webpack.github.io/)
 
 
 
